@@ -20,6 +20,7 @@ const COUNTRIES =
   'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson'; //eslint-disable-line
 const CASES = 
   'data/Week_26_UTLA.geojson';
+console.log("****")
 
 const deckgl = new deck.DeckGL({
   container: 'container',
@@ -35,14 +36,26 @@ const deckgl = new deck.DeckGL({
 
   layers: [
     new deck.GeoJsonLayer({
-      id: 'airports',
+      id: 'base-map',
+      data: COUNTRIES,
+      // Styles
+      stroked: true,
+      filled: true,
+      lineWidthMinPixels: 2,
+      opacity: 0.4,
+      getLineDashArray: [3, 3],
+      getLineColor: [60, 60, 60],
+      getFillColor: [200, 200, 200]
+    }),
+    new deck.GeoJsonLayer({
+      id: 'cases',
       data: CASES,
       // Styles
       filled: true,
       pointRadiusMinPixels: 2,
       pointRadiusScale: 2000,
       getRadius: f => (11 - f.properties.scalerank),
-      getFillColor: [200, 0, 80, 180],
+      getFillColor: d => calcFillColor(d),
       // Interactive props
       pickable: true,
       autoHighlight: true,
@@ -50,5 +63,9 @@ const deckgl = new deck.DeckGL({
     })
   ]
 });
+    
+function calcFillColor(d) {
+  return [200, 0, 80, 180];
+}
   </script>
 </html>
