@@ -20,7 +20,7 @@ const COUNTRIES =
   'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_admin_0_scale_rank.geojson'; //eslint-disable-line
 const CASES = 
   'data/Week_26_UTLA.geojson';
-console.log("****")
+console.log("----")
 
 const deckgl = new deck.DeckGL({
   container: 'container',
@@ -65,6 +65,7 @@ const deckgl = new deck.DeckGL({
 });
     
 function calcFillColor(d) {
+  console.log(d)
   return [200, 0, 80, 180];
 }
   </script>
