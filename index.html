@@ -36,18 +36,6 @@ const deckgl = new deck.DeckGL({
 
   layers: [
     new deck.GeoJsonLayer({
-      id: 'base-map',
-      data: COUNTRIES,
-      // Styles
-      stroked: true,
-      filled: true,
-      lineWidthMinPixels: 2,
-      opacity: 0.4,
-      getLineDashArray: [3, 3],
-      getLineColor: [60, 60, 60],
-      getFillColor: [200, 200, 200]
-    }),
-    new deck.GeoJsonLayer({
       id: 'airports',
       data: CASES,
       // Styles
