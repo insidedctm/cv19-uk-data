@@ -67,6 +67,7 @@ const deckgl = new deck.DeckGL({
 function calcFillColor(d) {
   console.log(d.properties.weeklyCaseRate)
   let caseRate = d.properties.weeklyCaseRate;
+  const opacity = 255;
   const colors = [[49,130,189, opacity], [107,174,214, opacity], [123,142,216, opacity], [226,103,152, opacity], [255,0,104, opacity], [50,50,50, opacity]]
   if (caseRate < 5.0) {
     return colors[0]
